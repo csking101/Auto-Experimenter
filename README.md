@@ -1,6 +1,6 @@
 # Automated Machine Learning (AutoML) System
 
-![Project Logo](project_logo.png)
+![Project Logo](logo.png)
 
 ## Overview
 
