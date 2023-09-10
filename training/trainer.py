@@ -24,11 +24,12 @@ def plot_train_losses(train_losses, title='Training Loss Curve'):
     plt.pause(PLOT_TIMEOUT)
 
 class Trainer:
-    def __init__(self, model, dataloader, experiment):
+    def __init__(self, model, dataloader, experiment, plot_required=False):
         self.model = model
         self.dataloader = dataloader
         self.num_epochs = experiment.num_epochs
         self.learning_rate = experiment.learning_rate
+        self.plot_required = plot_required
 
         if experiment.loss == "ce":
             print("Using Cross Entropy Loss")
@@ -83,6 +84,7 @@ class Trainer:
             loss_per_epoch.append(average_loss)
 
             print(f"Epoch [{epoch + 1}/{self.num_epochs}] Train Loss: {average_loss:.4f} Learning Rate: {self.learning_rate:.4f}")
-            plot_train_losses(loss_per_epoch)
+            if self.plot_required:
+                plot_train_losses(loss_per_epoch)
 
         print("Training finished")
