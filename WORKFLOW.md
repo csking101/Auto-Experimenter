@@ -7,9 +7,9 @@
     For the experiment file, you must specify the following:
     1. The name of the experiment
     1. For the data loading part, you must mention:
-        1. The batch size
-        1. The number of workers
-        1. The shuffle parameter
+        1. The batch size - if you have limited memory go with a smaller size
+        1. The number of workers - if you can't parallelize well, leave it blank
+        1. The shuffle parameter - should be True, if you haven't shuffled the dataset
     1. For the training part, you must mention:
         1. Learning Rate
         1. Number of Epochs
