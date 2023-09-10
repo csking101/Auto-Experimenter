@@ -1,7 +1,12 @@
 # Automated Machine Learning (AutoML) System
 <center>
-![Project Logo](logo.png)
+<p align="center">
+  <img src="logo.png" />
+</p>
+
+
 </center>
+
 ## Overview
 
 This repository contains an automated machine learning (AutoML) system designed to streamline the end-to-end machine learning pipeline. The system offers a modular and extensible architecture, making it suitable for various machine learning tasks, including computer vision, natural language processing (NLP), and time series analysis.
