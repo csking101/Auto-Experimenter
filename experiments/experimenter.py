@@ -2,11 +2,12 @@ import yaml
 
 class Experiment():
     #These will be the parameters for all of our experiments
-    def __init__(self,name,learning_rate,num_epochs,loss):
+    def __init__(self,name,learning_rate,num_epochs,loss,optimizer):
         self.name = name
         self.learning_rate = learning_rate
         self.num_epochs = num_epochs
         self.loss = loss
+        self.optimizer = optimizer
 
 def make_experiment(file_name):
     """
@@ -18,6 +19,6 @@ def make_experiment(file_name):
         print(f"The file {file_name} has been loaded")
         print(f"The specifications are: {data}")
 
-        experiment = Experiment(data['name'],data['learning_rate'],data['num_epochs'],data['loss'])
+        experiment = Experiment(data['name'],data['learning_rate'],data['num_epochs'],data['loss'],data['optimizer'])
 
         return experiment

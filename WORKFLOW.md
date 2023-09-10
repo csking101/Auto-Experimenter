@@ -12,6 +12,11 @@
         1. MSE -> "mse"
         1. Cross Entropy -> "ce"
         1. Binary Cross Entropy -> "bce"
+    1. The optimizer to be used:
+        1. SGD -> "sgd"
+        1. Adam -> "adam"
+        1. RMSProp -> "rmsprop"
+        1. Adagrad -> "adagrad"
 
 1. Create the ML model in the models folder.
 1. Make a trainer object

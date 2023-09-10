@@ -10,19 +10,33 @@ class Trainer:
         self.learning_rate = experiment.learning_rate
 
         if experiment.loss == "ce":
-            print("Using cross entropy loss")
+            print("Using Cross Entropy Loss")
             self.criterion = nn.CrossEntropyLoss()
         elif experiment.loss == "mse":
-            print("Using mean squared error loss")
+            print("Using Mean Squared Error Loss")
             self.criterion = nn.MSELoss()
         elif experiment.loss == "bce":
-            print("Using binary cross entropy loss")
+            print("Using Binary Cross Entropy Loss")
             self.criterion = nn.BCELoss()
         else:
-            print("No loss function specified in experiment file. Using mean squared error.")
+            print("No loss function specified in experiment file. Using Mean Squared Error Loss.")
             self.criterion = nn.MSELoss()
 
-        self.optimizer = optim.Adam(self.model.parameters(), lr=self.learning_rate)
+        if experiment.optimizer == "sgd":
+            print("Using SGD optimizer")
+            self.optimizer = optim.SGD(self.model.parameters(), lr=self.learning_rate)
+        elif experiment.optimizer == "adam":
+            print("Using Adam optimizer")
+            self.optimizer = optim.Adam(self.model.parameters(), lr=self.learning_rate)
+        elif experiment.optimizer == "adagrad":
+            print("Using Adagrad optimizer")
+            self.optimizer = optim.Adagrad(self.model.parameters(), lr=self.learning_rate)
+        elif experiment.optimizer == "rmsprop":
+            print("Using RMSProp optimizer")
+            self.optimizer = optim.RMSprop(self.model.parameters(), lr=self.learning_rate)
+        else:
+            print("No optimizer specified in experiment file. Using Adam.")
+            self.optimizer = optim.Adam(self.model.parameters(), lr=self.learning_rate)
 
     def train(self):
         for epoch in range(self.num_epochs):
