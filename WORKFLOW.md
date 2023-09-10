@@ -23,7 +23,7 @@
             * RMSProp -> "rmsprop"
             * Adagrad -> "adagrad"
 
-1. Create the ML model in the models folder.
+1. Create the ML model in the models folder - add it to the `models_list.py`. Mention the name in the experiment file, it is imperative that the name of the class and the name in the YAML file are exactly the same, or else the class constructor won't be found.
 1. Make a trainer object
 1. Train the model
 1. Test the model

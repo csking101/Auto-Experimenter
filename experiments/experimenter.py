@@ -2,7 +2,7 @@ import yaml
 
 class Experiment():
     #These will be the parameters for all of our experiments
-    def __init__(self,name,learning_rate,num_epochs,loss,optimizer,batch_size,num_workers,shuffle):
+    def __init__(self,name,learning_rate,num_epochs,loss,optimizer,batch_size,num_workers,shuffle,model_name):
         self.name = name
         self.learning_rate = learning_rate
         self.num_epochs = num_epochs
@@ -11,6 +11,7 @@ class Experiment():
         self.batch_size = batch_size
         self.num_workers = num_workers
         self.shuffle = shuffle
+        self.model_name = model_name
 
 def make_experiment(file_name):
     """
@@ -29,7 +30,8 @@ def make_experiment(file_name):
                                 data['optimizer'],
                                 data['batch_size'],
                                 data['num_workers'],
-                                data['shuffle']
+                                data['shuffle'],
+                                data['model_name']
                                 )
 
         return experiment

@@ -5,6 +5,9 @@ batch_size: 16
 num_workers:
 shuffle: True
 
+#Model Loading Part
+model_name: SimpleCNN
+
 #Training Part
 learning_rate: 0.001
 num_epochs: 1
