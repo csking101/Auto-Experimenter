@@ -8,7 +8,17 @@ class Trainer:
         self.dataloader = dataloader
         self.num_epochs = experiment.num_epochs
         self.learning_rate = experiment.learning_rate
-        self.criterion = nn.CrossEntropyLoss()
+
+        if experiment.loss == "ce":
+            self.criterion = nn.CrossEntropyLoss()
+        elif experiment.loss == "mse":
+            self.criterion = nn.MSELoss()
+        elif experiment.loss == "bce":
+            self.criterion = nn.BCELoss()
+        else:
+            print("No loss function specified in experiment file. Using mean squared error.")
+            self.criterion = nn.MSELoss()
+
         self.optimizer = optim.Adam(self.model.parameters(), lr=self.learning_rate)
 
     def train(self):
