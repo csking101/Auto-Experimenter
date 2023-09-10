@@ -2,6 +2,7 @@
 1. Create a custom dataset object by inheriting from `torch.utils.data.Dataset`.
 1. Specify if you want to perform K-Fold Cross Validation. (!!!IN PROGRESS!!!)
 1. Specify if you want to reproduce the experiment. (!!!IN PROGRESS!!!)
+1. You must create an experiment file in YAML specifying the format of the experiment
 1. Create the ML model in the models folder.
 1. Make a trainer object
 1. Train the model
