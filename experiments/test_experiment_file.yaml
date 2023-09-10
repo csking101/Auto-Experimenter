@@ -1,5 +1,13 @@
 name: test_experiment
+
+#Data Loader Part
+batch_size: 16
+num_workers:
+shuffle: True
+
+#Training Part
 learning_rate: 0.001
 num_epochs: 1
 loss: ce
 optimizer: adam
+
