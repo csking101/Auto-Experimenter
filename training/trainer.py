@@ -39,8 +39,11 @@ class Trainer:
             self.optimizer = optim.Adam(self.model.parameters(), lr=self.learning_rate)
 
     def train(self):
+        loss_per_epoch = []
+
         for epoch in range(self.num_epochs):
             running_loss = 0.0
+
             for inputs, labels in self.dataloader:
                 self.optimizer.zero_grad()
 
@@ -56,6 +59,8 @@ class Trainer:
 
             # Print the average loss for this epoch
             average_loss = running_loss / len(self.dataloader)
-            print(f"Epoch [{epoch + 1}/{self.num_epochs}] Loss: {average_loss:.4f}")
+            loss_per_epoch.append(average_loss)
+
+            print(f"Epoch [{epoch + 1}/{self.num_epochs}] Train Loss: {average_loss:.4f} Learning Rate: {self.learning_rate:.4f}")
 
         print("Training finished")
