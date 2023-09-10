@@ -51,6 +51,7 @@ class CustomDataset(Dataset):
 
 class CustomDataLoader(DataLoader):
     def __init__(self,
+                 experiment,
                  dataset=None,
                  train=True,
                  batch_size=16,
@@ -75,6 +76,17 @@ class CustomDataLoader(DataLoader):
         if dataset is None:
             print("Error! No dataset provided!")
             dataset = CustomMNISTDataset(train=train) #This is just for example
+
+        if experiment.batch_size is not None:
+            print(f"Using batch size of {experiment.batch_size} from experiment file")
+            batch_size = experiment.batch_size
+        if experiment.num_workers is not None:
+            print(f"Using {experiment.num_workers} workers from experiment file")
+            num_workers = experiment.num_workers
+        if experiment.shuffle is not None:
+            shuffle_used = "Using" if experiment.shuffle else "Not using"
+            print(f"{shuffle_used} shuffle")
+            shuffle = experiment.shuffle
 
         super().__init__(dataset,
                          batch_size=batch_size,
