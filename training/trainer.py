@@ -1,6 +1,27 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import matplotlib.pyplot as plt
+
+PLOT_TIMEOUT = 0.25
+
+def plot_train_losses(train_losses, title='Training Loss Curve'):
+    """
+    Plot training losses over epochs.
+
+    Args:
+        train_losses (list): List of training losses over epochs.
+        title (str, optional): Title for the plot. Default is 'Training Loss Curve'.
+    """
+    plt.figure(figsize=(10, 6))
+    plt.plot(train_losses, label='Training Loss')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.title(title)
+    plt.legend()
+    plt.grid(True)
+    plt.show(block=False)
+    plt.pause(PLOT_TIMEOUT)
 
 class Trainer:
     def __init__(self, model, dataloader, experiment):
@@ -62,5 +83,6 @@ class Trainer:
             loss_per_epoch.append(average_loss)
 
             print(f"Epoch [{epoch + 1}/{self.num_epochs}] Train Loss: {average_loss:.4f} Learning Rate: {self.learning_rate:.4f}")
+            plot_train_losses(loss_per_epoch)
 
         print("Training finished")

@@ -1,5 +1,22 @@
 import matplotlib.pyplot as plt
 
+def plot_train_losses(train_losses, title='Training Loss Curve'):
+    """
+    Plot training losses over epochs.
+
+    Args:
+        train_losses (list): List of training losses over epochs.
+        title (str, optional): Title for the plot. Default is 'Training Loss Curve'.
+    """
+    plt.figure(figsize=(10, 6))
+    plt.plot(train_losses, label='Training Loss')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.title(title)
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
 def plot_losses(train_losses, test_losses, title='Loss Curves'):
     """
     Plot training and testing losses over epochs.
