@@ -1,4 +1,4 @@
 name: test_experiment
 learning_rate: 0.001
 num_epochs: 1
-loss: cross_entropy
+loss: ce

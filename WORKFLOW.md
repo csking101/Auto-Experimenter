@@ -9,9 +9,9 @@
     1. Learning Rate
     1. Number of Epochs
     1. The loss function to be used:
-        1. MSE
-        1. Cross Entropy
-        1. Binary Cross Entropy
+        1. MSE -> "mse"
+        1. Cross Entropy -> "ce"
+        1. Binary Cross Entropy -> "bce"
 
 1. Create the ML model in the models folder.
 1. Make a trainer object
